@@ -9,10 +9,7 @@ function getLoanValues(){
      return loanValues
 }
 
-function displayPaymentInfo(){
-    let loanValues = getLoanValues();
-    console.log(loanValues);
-
+function displayPaymentInfo(loanValues){
     paymentInfo = getEMIAndInterest(loanValues);
     document.getElementById("emi").innerHTML="Monthly Payment: <b>$"+paymentInfo.emi+"</b>";
     document.getElementById("interest-paid").innerHTML = 'Total Interest Paid: <b>$'+paymentInfo.interest+'</b><br>';
@@ -49,9 +46,10 @@ function getSuggestedPayments(loanValues,paymentInfo){
     }
 
     const suggestedPayments = {
+        suggested_emi:suggested_emi.toFixed(2),
         total_time :(total_months/12).toFixed(2),
-        total_interest :total_interest.toFixed(2),
-        interestDiff:(suggested_emi-paymentInfo.emi).toFixed(0)
+        interestDiff :(paymentInfo.interest-total_interest).toFixed(2),
+        paymentDiff:(suggested_emi-paymentInfo.emi).toFixed(0)
     };
 
     return suggestedPayments
@@ -60,44 +58,103 @@ function getSuggestedPayments(loanValues,paymentInfo){
 
 
 function displaySuggestedPayments_sentence(suggestedPaymentInfo){
-    let message = '<p> If you pay <b><u>$'+suggested_emi+'/month</u></b> instead,';
-    message = message+' you will pay off your load in <b><u>'+timeAndInterest.total_time+'</u></b> years.';
-    message = message+' You will save <b><u>$'+(paymentInfo.interest-timeAndInterest.total_interest).toFixed(2)+'</u></b> on interest.';
+    let message = '<p> If you pay <b><u>$'+suggestedPaymentInfo.suggested_emi+'/month</u></b> instead,';
+    message = message+' you will pay off your load in <b><u>'+suggestedPaymentInfo.total_time+'</u></b> years.';
+    message = message+' You will save <b><u>$'+suggestedPaymentInfo.interestDiff+'</u></b> on interest.';
 
-    message = message+' $'+suggestedPaymentInfo.diff+' per month is '+createCompareString(suggestedPaymentInfo.diff);
+    message = message+' $'+suggestedPaymentInfo.paymentDiff+' per month is '+createCompareString(suggestedPaymentInfo.paymentDiff);
     message = message+'</p>';
     document.getElementById("suggested").innerHTML = message;
 }
+function createDiv(label, value){
+    let msg = '';
+    console.log("values : "+label+value);
 
-function loanCalculator(){
-    console.log("HI in loanCalculator function");
+    let div_start = '<div class=\'sug-div\'>';
+    let lable_div = '<div class=\'sug-div-lable\'>'+label+'</div>';
+    let value_div = '<div class=\'sug-div-value\'>'+value+'</div>';
+    let div_end = '</div>';
     
+    msg = div_start+lable_div+value_div+div_end;
+    console.log(msg);
+    return msg
+}
+function displaySuggestedPayments_bullets(suggestedPaymentInfo){
+    let label = 'Suggested Payment:';
+    let value = '<b>$'+suggestedPaymentInfo.suggested_emi+'/month</b>';
+    let div1 = createDiv(label,value);
+
+    label = 'Payoff Period:';
+    value = '<b>'+suggestedPaymentInfo.total_time+' Years</b>';
+    let div2 = createDiv(label,value);
+
+    label = 'Interest Saved:';
+    value = '<b>$'+suggestedPaymentInfo.interestDiff+'</b>';
+    let div3 = createDiv(label,value);
+    
+    let message = div1+div2+div3;
+    console.log(label+value);
+    document.getElementById("suggested").innerHTML = message;
+}
+
+
+
+
+function loanCalculator1(){
+    console.log("HI in loanCalculator function");
+    /**
+     * get the loan parameters from the form
+     */
+
+     let loanValues = getLoanValues();
+     console.log(loanValues);
+
     /**
      * calculate and diplay monthly payments. 
      */
-    let paymentInfo= displayPaymentInfo();
-    
+    let paymentInfo= displayPaymentInfo(loanValues);
+    console.log(paymentInfo)
     /**
      * Calculate faster payment option.
-     */
+    */
     let suggestedPaymentInfo = getSuggestedPayments(loanValues,paymentInfo);
-     
+     console.log(suggestedPaymentInfo)
     /**
      * Display the suggested payment plan using sentences.
-     */
-    displaySuggestedPayments_sentence(suggestedPaymentInfo);
-    console.log(suggested_emi);
-   
+    */
+    displaySuggestedPayments_bullets(suggestedPaymentInfo);
+   // console.log(suggested_emi);
+ 
     return false
 }
 
-function getTimeAndInterest(loanValues, suggested_emi){
-    
 
-   
+function loanCalculator(){
+    console.log("HI in loanCalculator function");
+    /**
+     * get the loan parameters from the form
+     */
 
-    return timeAndInterst
+     let loanValues = getLoanValues();
+     console.log(loanValues);
 
+    /**
+     * calculate and diplay monthly payments. 
+     */
+    let paymentInfo= displayPaymentInfo(loanValues);
+    console.log(paymentInfo)
+    /**
+     * Calculate faster payment option.
+    */
+    let suggestedPaymentInfo = getSuggestedPayments(loanValues,paymentInfo);
+     console.log(suggestedPaymentInfo)
+    /**
+     * Display the suggested payment plan using sentences.
+    */
+    displaySuggestedPayments_sentence(suggestedPaymentInfo);
+   // console.log(suggested_emi);
+ 
+    return false
 }
 
 
