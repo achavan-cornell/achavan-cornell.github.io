@@ -1,6 +1,7 @@
 
 .logo-menubar{
     display: flex;
+    justify-content: space-between;
     background-color:#583d77;
     width: 100%;
     height: 5%;
