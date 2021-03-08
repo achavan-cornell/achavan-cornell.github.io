@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>  
+        <title> Cornell College Affordability Calculator</title>
+        <script src="loanScript.js"></script>
+        <link rel='stylesheet' href='styles.css'>
+    </head>
+    
+    <body>
+        <div class='logo-menubar'>
+            <div class='logo'>
+                <img alt="Cornell College Logo" height="100%" class="logo" src="CClogo_Reversed.png">
+            </div>
+        </div>
+        <div class='Box'>
+            <div class='videoBox'>
+                <iframe width="100%" height="500" src="https://www.youtube.com/embed/RtyP6OeoyyY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class='loanCalculatorBox'>
+               <div class='divTitle'>
+                    Calculate Your Monthly Payment! 
+                </div>
+                <div class='form-block'>
+                    <form name='laon-form' onsubmit='return loanCalculator()'>
+                        <!-- Get the principle amount-->
+                        <div class='form-element' >
+                            <div class='label'>
+                                <label> Loan Amount</label>
+                            </div>
+                            <div class='inputBox'>
+                                <input  type='number' step="0.01" id="principle" class="textBox" name="principle" style="text-align: right;" value=27000>
+                            </div>
+                        </div>
+                        <!-- Get the Interest rate-->
+                        <div class='form-element' >
+                            <div class='label'>
+                                <label>  Interest Rate</label>
+                            </div>
+                            <div class='inputBox'>
+                                <input type='number' step="0.01" name="apr" id= "apr" class="textBox" style="text-align: right;" value=2.5>
+                            </div>
+                        </div>
+                        <!-- Get the loan period -->
+                        <div class='form-element' >
+                            <div class='label'>
+                                <label> Loan Period (Years)</label>
+                            </div>
+                            <div class='inputBox'>
+                                <input type='number' step="0.01" name="years" id="years" class="textBox" style="text-align: right;" value=10>
+                            </div>
+                        </div>
+                        <div class='form-element' >
+                            <div class='label'>
+                                <label></label>
+                            </div>
+                            <div class='inputBox'>
+                                <button class='btn-box'>Calculate</button>
+                            </div>
+                        </div>
+                        
+                    </form>
+                     
+                </div>
+               <div class="results">                   
+                    <div class="res-div" id="emi">  </div>
+                    <div class="res-div" id="interest-paid"> </div>
+               </div>
+               <div class="suggestions">
+                <P id="suggested"> </P>
+               </div>
+            </div>
+        </div>
+    </body>
+</html>

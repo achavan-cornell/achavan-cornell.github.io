@@ -1,0 +1,118 @@
+
+.logo-menubar{
+    display: flex;
+    background-color:#583d77;
+    width: 100%;
+    height: 5%;
+}
+
+.logo{
+    
+    width: 45%;
+    height: 90%;
+}
+
+.Box{
+    display: flex;
+    background-color:#dfdfdf;
+    padding: 5px;
+
+}
+.videoBox{
+    padding: 2px;
+    width: 60%;
+    border: solid white;
+}
+
+.loanCalculatorBox{
+    width: 40%;
+    padding: 2px;
+    border: solid #583d77;  
+}
+
+.divTitle{
+    width: 100%;
+    text-align: center;    
+    font-size: 2em;
+    text-decoration-line: underline;
+    text-decoration-color: #583d77;
+    color: #583d77;
+    margin-bottom: 30px;
+}
+
+.form-block{
+    width: 100%;
+    justify-content: center;
+    align-content: center;
+    border-bottom: solid #583d77;
+    padding-bottom: 20px;
+}
+
+.form-element{
+    
+    margin-top: 10px;
+    width: 90%;
+    height: 30px;
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+    padding-left:5px ;
+    font-size: 1.1em;
+    
+}
+
+.label{
+    color: #583d77;
+    width: 45%;
+    padding-right: 5px;
+    font-size: 1.2em;
+    text-align: right;
+   
+    
+}
+
+.inputBox{
+    width:40%;
+}
+
+.btn-box{
+    text-align: center;
+    color: whitesmoke;
+    width: 225px;
+    height: 40px;
+    margin-top: 10px;
+    background-color: #583d77;
+    border-style: none;
+    cursor: pointer;
+    font-size: 1em;
+
+}
+
+
+.textBox{
+    height: 30px;
+    width: 215px;
+    font-size: 1.2em;
+}
+
+.results{
+    padding-top: 10px;
+    width: 100%;
+    color: #583d77;
+}
+.res-div{
+    width: 90%;
+    padding-top: 5px;
+    font-size: 1.3em;
+    text-align: center;
+}
+
+.suggestions{
+    margin-top: 30px;
+    padding: 10px;
+    text-align: center;
+    width: 90%;
+    font-size: 1.3em;
+    color: #583d77;
+}
+
