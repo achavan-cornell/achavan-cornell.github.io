@@ -112,19 +112,18 @@
     width: 90%;
     padding-top: 5px;
     display: flex;
-    justify-content: space-around;
+
     padding-left: 10px;
-    text-align: center;
     font-size: 1.1em;
 }
 .sug-div-label{
     width: 45%;
     text-align: right;
     padding-right: 10px;
-    border: solid black;
+
 }
 
-.syg-div-value{
+.sug-div-value{
     width: 45%;
     text-align: left;
     padding-left: 10px;

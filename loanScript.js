@@ -71,7 +71,7 @@ function createDiv(label, value){
     console.log("values : "+label+value);
 
     let div_start = '<div class=\'sug-div\'>';
-    let lable_div = '<div class=\'sug-div-lable\'>'+label+'</div>';
+    let lable_div = '<div class=\'sug-div-label\'>'+label+'</div>';
     let value_div = '<div class=\'sug-div-value\'>'+value+'</div>';
     let div_end = '</div>';
     
