@@ -11,9 +11,25 @@ function getLoanValues(){
 
 function displayPaymentInfo(loanValues){
     paymentInfo = getEMIAndInterest(loanValues);
-    document.getElementById("emi").innerHTML="Monthly Payment: <b>$"+paymentInfo.emi+"</b>";
-    document.getElementById("interest-paid").innerHTML = 'Total Interest Paid: <b>$'+paymentInfo.interest+'</b><br>';
+    console.log(paymentInfo);
+
+    let label = 'Monthly Payments:';
+    let value = '<b>$'+paymentInfo.emi+'</b>';
+    let emi_div = createDiv(label,value);
+    console.log(emi_div);
+
+
+    label = 'Total Interest:';
+    value = '<b>$'+paymentInfo.interest+'</b>';
+    let interest_div = createDiv(label,value);
+    console.log(interest_div);
+
+    let message = emi_div + interest_div;
+
+    document.getElementById("results").innerHTML = message;
+
     return paymentInfo
+    
 }
 
 function createCompareString(diff){
@@ -30,8 +46,10 @@ function createCompareString(diff){
     return addMessage
 }
 
+
 function getSuggestedPayments(loanValues,paymentInfo){
     let suggested_emi = Math.ceil(paymentInfo.emi/50) *50;
+    
 
     let principle = loanValues.loanAmount;
     let aprMonthly = loanValues.annualInterestrate/1200;
@@ -53,7 +71,6 @@ function getSuggestedPayments(loanValues,paymentInfo){
     };
 
     return suggestedPayments
-
 }
 
 
@@ -66,6 +83,8 @@ function displaySuggestedPayments_sentence(suggestedPaymentInfo){
     message = message+'</p>';
     document.getElementById("suggested").innerHTML = message;
 }
+
+
 function createDiv(label, value){
     let msg = '';
     console.log("values : "+label+value);
@@ -76,13 +95,21 @@ function createDiv(label, value){
     let div_end = '</div>';
     
     msg = div_start+lable_div+value_div+div_end;
-    console.log(msg);
+    
     return msg
 }
 function displaySuggestedPayments_bullets(suggestedPaymentInfo){
+
+    console.log("in display suggestions");
+    console.log(suggestedPaymentInfo);
+   
     let label = 'Suggested Payment:';
     let value = '<b>$'+suggestedPaymentInfo.suggested_emi+'/month</b>';
     let div1 = createDiv(label,value);
+
+    label = 'Difference:';
+    value = '<b>$'+suggestedPaymentInfo.paymentDiff+'</b> ('+createCompareString(suggestedPaymentInfo.paymentDiff)+')';
+    let diff_div = createDiv(label,value);
 
     label = 'Payoff Period:';
     value = '<b>'+suggestedPaymentInfo.total_time+' Years</b>';
@@ -92,9 +119,10 @@ function displaySuggestedPayments_bullets(suggestedPaymentInfo){
     value = '<b>$'+suggestedPaymentInfo.interestDiff+'</b>';
     let div3 = createDiv(label,value);
     
-    let message = div1+div2+div3;
-    console.log(label+value);
+    let message = div1+diff_div+div2+div3;
+    
     document.getElementById("suggested").innerHTML = message;
+  
 }
 
 
@@ -112,22 +140,65 @@ function loanCalculator1(){
     /**
      * calculate and diplay monthly payments. 
      */
-    let paymentInfo= displayPaymentInfo(loanValues);
-    console.log(paymentInfo)
+    let paymentInfo = displayPaymentInfo(loanValues);
+    
     /**
      * Calculate faster payment option.
     */
     let suggestedPaymentInfo = getSuggestedPayments(loanValues,paymentInfo);
-     console.log(suggestedPaymentInfo)
+   
     /**
      * Display the suggested payment plan using sentences.
     */
     displaySuggestedPayments_bullets(suggestedPaymentInfo);
    // console.log(suggested_emi);
- 
+    displayEarningsForm();
     return false
 }
 
+function createFormInput(){
+    let outer_div = '<div class=\'form-element\'>';
+    let div_end= '</div>';
+    let label_div= '<div class=\'label\'>';
+    let inputBox_div = '<div class=\'custom-select\'>';
+    let label = '<label> On Compus Work:</label>';
+    
+ 
+    let input = '<select id=\'workType\' name=\'work\' class=\'select\'>';
+    
+    input = input+'<div class=\'option-div\'><option value=\'1\'> 5hrs/week on Campus</option></div>';
+    input = input +'<div class=\'option-div\'><option value=\'2\'> 10hrs/week on Campus</option></div>';
+    input = input +'<div class=\'option-div\'><option value=\'3\'> Summer Internship</option></div>';
+    input = input+'</select>';
+    console.log(input);
+    
+    let label_div_html = label_div + label+ div_end;
+    let inputBox_div_html = inputBox_div + input + div_end;
+    let input_html = outer_div + label_div_html + inputBox_div_html + div_end;
+    return input_html
+ 
+
+}
+function createSubmitButton(){
+    let outer_div = '<div class=\'form-element\'>';
+    let div_end= '</div>';
+    let label_div= '<div class=\'label\'>';
+
+    let input_div = '<div class=\'inputBox\'>';
+    
+}
+
+function displayEarningsForm(){
+    let form_tag = '<form name=\'earning-form\' onsubmit=\'return calculateEarnings()\'>';
+    let form_end = '</form>';
+    let drop_down = createFormInput();
+    let submitButton = createSubmitButton();
+    let message = form_tag + drop_down + form_end;
+    console.log(message);
+    document.getElementById("earning-form").innerHTML = message;
+    
+
+}
 
 function loanCalculator(){
     console.log("HI in loanCalculator function");
