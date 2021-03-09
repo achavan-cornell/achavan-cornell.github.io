@@ -183,9 +183,19 @@ function createSubmitButton(){
     let outer_div = '<div class=\'form-element\'>';
     let div_end= '</div>';
     let label_div= '<div class=\'label\'>';
+    let label = '<label></lable>';
 
-    let input_div = '<div class=\'inputBox\'>';
+    let inputBox_div = '<div class=\'inputBox\'>';
+
+    let label_div_html = label_div + label + div_end;
+
+    let button = '<button class=\'btn-box\'> Caclulate</button>';
+    let inputBox_div_html = inputBox_div + button + div_end;
+
+    let form_element_html = outer_div + label_div_html+inputBox_div_html+div_end;
     
+    return form_element_html
+
 }
 
 function displayEarningsForm(){
@@ -193,11 +203,36 @@ function displayEarningsForm(){
     let form_end = '</form>';
     let drop_down = createFormInput();
     let submitButton = createSubmitButton();
-    let message = form_tag + drop_down + form_end;
+    let message = form_tag + drop_down + submitButton + form_end;
+    //message = message +'<div class=\'suggesetions\'><P id=\'yearEarning\'></P></div>';
     console.log(message);
-    document.getElementById("earning-form").innerHTML = message;
-    
+    document.getElementById("earning-form").innerHTML = message;  
 
+}
+
+function calculateEarnings(){
+    workType = document.getElementById("workType").value;
+    let earnings = 0;
+    if (workType==1){
+        earnings= 5*10*32;
+    }
+    else if(workType==2){
+        earnings = 10*10*32;
+    }
+    else{
+        earnings = 2500;
+    }
+
+    
+    let label = 'Earnings:';
+    let value = '<b>$'+earnings.toFixed(2)+'</b>';
+    console.log(label+value);
+   
+    let message = createDiv(label, value);
+    console.log(message);
+    
+    document.getElementById("yearEarning").innerHTML = message;
+    return false
 }
 
 function loanCalculator(){

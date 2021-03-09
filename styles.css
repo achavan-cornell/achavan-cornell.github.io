@@ -201,6 +201,14 @@
     color: #583d77;
 }
 
+.earnings{
+    position: relative;
+    top: 25%;
+    width: 100%;
+    font-size: 1.2em;
+    color: #583d77;
+}
+
 .earning-form-div{
     position: relative;
     top: 25%;
