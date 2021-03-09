@@ -13,10 +13,75 @@
     height: 90%;
 }
 
+.menubar{
+    display: flex;
+    width: 20%;
+    font-size: 1.3em;
+    height: 10%;
+    background-color: #dfdfdf;
+    margin-top:2%;
+}
+.link-wrapper{
+    padding-left: 3%;
+}
+
 .Box{
     display: flex;
     background-color:#dfdfdf;
     padding: 5px;
+
+}
+
+.info-div{
+    width: 60%;
+    color: #583d77 ;
+    border: solid #583d77;
+}
+
+.heading{
+    margin-top: 2%;
+    padding-left: 3%;
+    padding-right: 3%;
+    font-size: 1.8em;
+    text-decoration: underline;
+}
+
+.intro-para{
+    padding-top: 1.5%;
+    padding-left: 3%;
+    padding-right: 3%;
+    text-align: justify;
+    font-size: 1.3em;
+}
+
+.usage-div{
+    padding-top: 2%;
+    padding-bottom: -1%;
+    padding-left: 3%;
+    padding-right: 3%;
+    text-align: justify;
+    font-size: 1.3em;
+}
+
+.list-div{
+    padding-top: 0%;
+    padding-left: 3%;
+    padding-right: 3%;
+    font-size: 1.3em;
+}
+
+.list-item{
+    padding-top:0.5%;
+    padding-left: 3%;
+    padding-right: 3%;
+    text-align: justify;
+    font-size: 1.3em;
+}
+
+.disclaimer{
+    padding-left: 1%;
+    padding-right:1%;
+    margin-top: 5%;
 
 }
 .videoBox{
@@ -45,7 +110,6 @@
     width: 100%;
     justify-content: center;
     align-content: center;
-    border-bottom: solid #583d77;
     padding-bottom: 20px;
 }
 
@@ -96,10 +160,10 @@
     font-size: 1.2em;
 }
 
-.results{
-    padding-top: 10px;
-    width: 100%;
-    color: #583d77;
+.results-div{
+    border-top: solid #583d77;
+    height:10%;
+
 }
 .res-div{
     width: 90%;
@@ -117,7 +181,7 @@
     font-size: 1.1em;
 }
 .sug-div-label{
-    width: 45%;
+    width: 65%;
     text-align: right;
     padding-right: 10px;
 
@@ -131,9 +195,33 @@
 
 .suggestions{
     
-    padding: 10px;
-    width: 90%;
+    padding: 0;
+    width: 100%;
     font-size: 1.2em;
     color: #583d77;
 }
 
+.earning-form-div{
+    position: relative;
+    top: 25%;
+    width: 100%;
+    justify-content: center;
+    align-content: center;
+    border-top: #583d77;
+}
+
+
+.custom-select {
+    position: relative;
+    width: 50px;
+    font-family: Arial;
+  }
+
+  .select{
+      width:250px;
+      height: 40px;
+      font-size: 1em;
+  }
+  .option-div{
+      font-size: 1.1em;
+  }

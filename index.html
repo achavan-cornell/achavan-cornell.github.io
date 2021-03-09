@@ -16,14 +16,47 @@
                     <a href="index.html">Home</a>
                 </div>
                 <div class="link-wrapper">
-                    <a href="Sentence.html">Sentence</a>
+                    <a href="Sentence.html">Video</a>
                 </div>
                 
             </div>
         </div>
         <div class='Box'>
-            <div class='videoBox'>
-                <iframe width="100%" height="500" src="https://www.youtube.com/embed/RtyP6OeoyyY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div class='info-div'>
+                <div class="heading">
+                    Estimate your Student Loan Payment Amounts
+                </div>
+                <div class="intro-para">
+                    Borrowing student loans to help pay for your college education may seem scary. But making this investment in yourself to achieve your goal of getting a college education will pay off.  Based on data from the U.S. Bureau of Labor Statistics, higher education leads to higher incomes and lower rates of unemployment.
+                </div>
+                <div class="usage-div">
+                    Use this calculator to help understand how you will be able to repay your college loans<sup>*</sup>.  
+                    <br>Here are a few things to consider:
+                </div>
+                <!--<div class="list-div">-->
+                    <ul>
+                        <div class="list-item"><li>Borrow only what you need</li></div>
+                        <div class="list-item"><li>Interest rates vary year to year</li></div>
+                        <div class="list-item"><li>Consider how small lifestyle changes can help you pay off your loan faster</li></div>
+                        <div class="list-item"><li>A part-time job can help reduce the amount you need to borrow</li></div>
+                    </ul>
+                <!--</div>-->
+                <div class="heading">
+                    Estimate Earning Potential of Employment
+                </div>
+                <div class="intro-para">
+                    You can make a significant impact on financing your college education through earnings from work and gain additional benefits while working on or off-campus.
+                </div>
+                <ul>
+                        <div class="list-item"><li>Work schedules can vary depending on class schedule, co-curricular activities, and participation in internships or off-campus study</li></div>
+                        <div class="list-item"><li>Holding a campus job can also provide valuable experience in a field of interest and establish an additional support network or provide a mentor on campus</li></div>
+                        <div class="list-item"><li>Working can help grow problem solving skills, improve time management abilities and accountability</li></div>
+                        <div class="list-item"><li>A wide variety of positions exist on campus (federal work-study positions and institutional positions which do not require a work-study award).</li></div>
+                        <div class="list-item"><li>Some students also hold jobs off-campus in Mt. Vernon, Cedar Rapids or Iowa City.</li></div>
+                    </ul>
+                <div class="disclaimer">
+                   <sup>*</sup>Actual payments may vary based on the interest rate at the time of repayment. The actual amount of your payments will be provided to you by your lender on a repayment schedule and/or a Truth in Lending disclosure, as is applicable.
+                </div>
             </div>
             <div class='loanCalculatorBox'>
                <div class='divTitle'>
@@ -70,13 +103,17 @@
                     </form>
                      
                 </div>
-               <div class="results">                   
-                    <div class="res-div" id="emi">  </div>
-                    <div class="res-div" id="interest-paid"> </div>
-               </div>
-               <div class="suggestions">
-                <P id="suggested"> </P>
-               </div>
+                <div class="results-div">
+                    <div class="suggestions">                   
+                        <P id="results"></P>
+                    </div>
+                    <div class="suggestions">
+                        <P id="suggested"> </P>
+                    </div>
+                </div>
+                <div class="earning-form-div">
+                  <P id="earning-form"></P>
+                </div>
             </div>
         </div>
     </body>
